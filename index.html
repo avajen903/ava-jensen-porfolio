@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ava Jensen's personal and professional ePortfolio — University of Alabama finance student.">
+  <title>Ava Jensen | Personal ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf8f3;
+      --paper: #fffefa;
+      --ink: #303b34;
+      --muted: #737b72;
+      --sage: #a8b8a2;
+      --sage-dark: #657b68;
+      --pink: #ead4d1;
+      --pink-light: #f5e9e6;
+      --gold: #b69a66;
+      --line: #e8e5dc;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgba(250,248,243,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(232,229,220,.85); }
+    .nav { max-width: 1160px; margin: auto; padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand { font-family: var(--serif); font-size: 1.25rem; letter-spacing: .02em; }
+    .brand span { color: var(--sage-dark); }
+    .navlinks { display: flex; gap: 28px; align-items: center; font-size: .88rem; color: #59645b; }
+    .navlinks a { padding: 7px 0; border-bottom: 1px solid transparent; }
+    .navlinks a:hover, .navlinks a.active { color: var(--sage-dark); border-color: var(--gold); }
+    .menu { display: none; border: 1px solid var(--line); background: var(--paper); border-radius: 99px; padding: 8px 13px; color: var(--ink); font: inherit; }
+    .wrap { max-width: 1160px; margin: auto; padding: 0 28px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .19em; font-size: .72rem; font-weight: 700; color: var(--sage-dark); }
+    h1,h2,h3 { font-family: var(--serif); font-weight: 500; line-height: 1.14; }
+    h1 { font-size: clamp(3.2rem, 8vw, 6.7rem); margin: 15px 0 20px; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2.2rem, 4.5vw, 3.7rem); margin: 10px 0 18px; letter-spacing: -.025em; }
+    h3 { font-size: 1.55rem; margin: 0 0 10px; }
+    p { color: #606a61; }
+    .hero { min-height: 690px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 54px; padding-top: 70px; padding-bottom: 90px; }
+    .hero-copy { max-width: 650px; }
+    .hero-copy .intro { max-width: 560px; font-size: 1.08rem; }
+    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 99px; padding: 12px 21px; font-size: .88rem; font-weight: 600; transition: .2s ease; }
+    .btn.primary { background: var(--sage-dark); color: white; }
+    .btn.primary:hover { background: #526956; transform: translateY(-2px); }
+    .btn.secondary { border: 1px solid #c9cfc4; color: var(--sage-dark); background: rgba(255,255,255,.5); }
+    .btn.secondary:hover { background: white; }
+    .hero-art { min-height: 470px; position: relative; display: grid; place-items: center; }
+    .portrait-frame { width: min(100%, 410px); height: 475px; border-radius: 48% 48% 20px 20px; background: linear-gradient(145deg, #dce4d7, #f1dfdc 65%, #e9d9c8); position: relative; overflow: hidden; border: 10px solid rgba(255,255,255,.7); box-shadow: 0 25px 70px rgba(73,82,68,.12); }
+    .art-leaf { position: absolute; width: 120px; height: 210px; border-radius: 100% 0 100% 0; border: 1px solid rgba(101,123,104,.5); transform: rotate(25deg); right: -8px; bottom: 45px; }
+    .art-note { position: absolute; left: -5px; bottom: 44px; background: var(--paper); padding: 17px 21px; border-radius: 13px; box-shadow: 0 12px 35px rgba(55,65,55,.1); font-family: var(--serif); font-size: 1.05rem; transform: rotate(-4deg); }
+    .section { padding: 100px 0; }
+    .section.white { background: var(--paper); }
+    .section-head { max-width: 680px; margin-bottom: 48px; }
+    .section-head p { font-size: 1.02rem; }
+    .two-col { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .side-label { position: sticky; top: 115px; padding: 28px; background: var(--pink-light); border-radius: 18px; }
+    .side-label .big-number { font-family: var(--serif); font-size: 4rem; color: var(--sage-dark); line-height: 1; }
+    .side-label p { margin-bottom: 0; font-size: .9rem; }
+    .content-stack { display: grid; gap: 35px; }
+    .content-block { border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+    .content-block:last-child { border-bottom: 0; }
+    .content-block p { margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 17px; padding: 25px; min-height: 190px; }
+    .card .icon { width: 37px; height: 37px; border-radius: 50%; background: var(--pink-light); display: grid; place-items: center; color: var(--sage-dark); margin-bottom: 17px; font-size: 1.05rem; }
+    .card p { margin: 0; font-size: .93rem; }
+    .growth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .growth-panel { padding: 30px; border-radius: 18px; background: #edf1e9; }
+    .growth-panel:last-child { background: #f5e9e6; }
+    .growth-panel ul { padding-left: 19px; color: #606a61; margin-bottom: 0; }
+    .career-intro { background: #e9eee5; border-radius: 24px; padding: 42px; display: grid; grid-template-columns: 1fr .65fr; gap: 35px; align-items: center; }
+    .career-quote { font-family: var(--serif); font-size: 1.7rem; line-height: 1.35; color: var(--sage-dark); border-left: 2px solid var(--gold); padding-left: 22px; }
+    .goal-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
+    .goal { background: var(--paper); border: 1px solid var(--line); border-radius: 17px; padding: 27px; }
+    .goal .tag { color: var(--sage-dark); text-transform: uppercase; letter-spacing: .15em; font-size: .68rem; font-weight: 700; }
+    .goal ul { padding-left: 18px; color: #606a61; margin-bottom: 0; }
+    .values-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .pill { background: var(--pink-light); border: 1px solid #eadbd6; border-radius: 99px; padding: 8px 14px; font-size: .82rem; color: #5f6d60; }
+    .closing { text-align: center; max-width: 760px; margin: auto; }
+    .closing h2 { margin-bottom: 18px; }
+    footer { border-top: 1px solid var(--line); padding: 28px; text-align: center; color: var(--muted); font-size: .8rem; }
+    footer a { color: var(--sage-dark); }
+    .reveal { animation: rise .7s both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) {
+      .nav { padding: 13px 20px; }
+      .menu { display: block; }
+      .navlinks { display: none; position: absolute; top: 61px; left: 0; right: 0; padding: 18px 24px 22px; background: var(--cream); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 13px; }
+      .navlinks.open { display: flex; }
+      .wrap { padding: 0 21px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 30px; padding-top: 68px; padding-bottom: 65px; }
+      .hero-art { min-height: 390px; }
+      .portrait-frame { height: 390px; max-width: 330px; }
+      .art-note { left: 0; bottom: 20px; }
+      .section { padding: 72px 0; }
+      .two-col, .career-intro { grid-template-columns: 1fr; gap: 28px; }
+      .side-label { position: static; }
+      .cards, .growth-grid, .goal-list { grid-template-columns: 1fr; }
+      .career-intro { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home">Ava <span>Jensen</span></a>
+      <button class="menu" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <div class="navlinks" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#career">Career Goals</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">University of Alabama · Finance</div>
+        <h1>Growing with<br><em>purpose.</em></h1>
+        <p class="intro">Creating opportunities, embracing growth, and building a future shaped by purpose.</p>
+        <p>Welcome to my ePortfolio. I'm Ava Jensen, a student at the University of Alabama studying finance. This space shares the experiences, values, and aspirations that are shaping who I am and the professional I hope to become.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#about">Get to know me</a>
+          <a class="btn secondary" href="#career">Explore my goals</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Decorative photo placeholder">
+        <div class="portrait-frame"><img src="ava-jensen-photo.jpeg" alt="Ava Jensen portrait" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;"></div>
+        <div class="art-leaf"></div>
+        <div class="art-note">A little about my journey</div>
+      </div>
+    </section>
+
+    <section class="section white" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">01 · About me</div>
+          <h2>The experiences that shape me.</h2>
+          <p>My identity is shaped by where I come from, the people I connect with, and the experiences that encourage me to keep learning.</p>
+        </div>
+        <div class="two-col">
+          <aside class="side-label">
+            <div class="big-number">01</div>
+            <h3>My story</h3>
+            <p>From Dover, Delaware to Tuscaloosa, Alabama — learning to embrace change and make the most of new opportunities.</p>
+          </aside>
+          <div class="content-stack">
+            <article class="content-block">
+              <h3>Introduction</h3>
+              <p>My name is Ava Jensen, and I am a student at the University of Alabama majoring in finance. Originally from Dover, Delaware, moving to Alabama has given me the opportunity to experience a new environment, meet new people, and become more independent. College has encouraged me to step outside my comfort zone while discovering new interests and opportunities. I hope to build a strong foundation that prepares me for a meaningful career and continued personal growth.</p>
+            </article>
+            <article class="content-block">
+              <h3>A personal turning point</h3>
+              <p>One experience that has shaped me is moving away from my hometown in Delaware to attend college in Alabama. Starting over in a new environment has taught me the importance of independence, adaptability, and being willing to embrace change. It has encouraged me to take initiative, meet new people, and become more confident in my decisions. I have learned that growth often comes from unfamiliar situations, and that lesson influences how I approach my education, relationships, and future goals.</p>
+            </article>
+            <article class="content-block">
+              <h3>Interests &amp; passions</h3>
+              <p>I enjoy experiences that allow me to learn, grow, and connect with others. I am interested in finance and investing, exploring new places, personal development, and building meaningful friendships and professional relationships. These interests reflect my curiosity, willingness to try new things, and desire to keep developing as a person.</p>
+            </article>
+            <article class="content-block">
+              <h3>Values &amp; beliefs</h3>
+              <p>Integrity, dependability, ambition, authenticity, and inclusivity are values I try to bring into my everyday decisions. I believe in being honest, following through on commitments, setting goals, staying true to myself, and helping others feel welcomed and respected. To me, success is not only measured by accomplishments, but also by how you treat people and the reputation you build along the way.</p>
+              <div class="values-row">
+                <span class="pill">Integrity</span><span class="pill">Dependability</span><span class="pill">Ambition</span><span class="pill">Authenticity</span><span class="pill">Inclusivity</span>
+              </div>
+            </article>
+            <article class="content-block">
+              <h3>Strengths &amp; areas of growth</h3>
+              <p>I consider determination, adaptability, communication, and dependability to be some of my strengths. When I set a goal, I am willing to put in the effort to accomplish it. I also value building relationships and helping others feel included. I want to keep growing by becoming more confident in professional settings, strengthening my financial and technical knowledge, and developing my leadership and networking skills. I plan to use academic opportunities, new experiences, and professional connections to build on my strengths.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interests">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">A few things that matter to me</div>
+          <h2>Curiosity keeps me moving forward.</h2>
+          <p>The interests I make time for reflect the kind of person — and professional — I want to become.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">↗</div><h3>Finance &amp; investing</h3><p>Learning how markets work and how thoughtful financial decisions can shape people's futures.</p></article>
+          <article class="card"><div class="icon">✧</div><h3>New experiences</h3><p>Exploring new places, learning from different perspectives, and staying open to change.</p></article>
+          <article class="card"><div class="icon">◎</div><h3>Personal growth</h3><p>Building confidence, independence, and skills through new challenges and opportunities.</p></article>
+          <article class="card"><div class="icon">♡</div><h3>Meaningful connections</h3><p>Creating genuine friendships and professional relationships built on trust and support.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="career">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">02 · Career goals</div>
+          <h2>Building a future in finance.</h2>
+          <p>My goal is to turn what I learn in the classroom into knowledge and experience that I can carry into a career.</p>
+        </div>
+        <div class="career-intro">
+          <div>
+            <h3>Where I hope to go</h3>
+            <p>As a finance major, I am especially interested in wealth management and financial services. I enjoy learning how financial markets work, how investments are managed, and how financial decisions can influence long-term goals. Finance combines analytical thinking, problem-solving, and relationship-building — areas I hope to continue developing.</p>
+          </div>
+          <div class="career-quote">“I want to build a career grounded in knowledge, trust, and continuous growth.”</div>
+        </div>
+
+        <div class="goal-list">
+          <article class="goal">
+            <div class="tag">Short-term goals</div>
+            <h3>Build my foundation</h3>
+            <ul>
+              <li>Maintain strong academic performance while completing my finance degree.</li>
+              <li>Strengthen my understanding of investing, financial markets, and wealth management.</li>
+              <li>Improve technical skills, especially Excel and financial analysis.</li>
+              <li>Connect with finance professionals through career fairs, networking, and LinkedIn.</li>
+              <li>Explore student organizations, internships, and other hands-on opportunities.</li>
+            </ul>
+          </article>
+          <article class="goal">
+            <div class="tag">Long-term goals</div>
+            <h3>Grow into my career</h3>
+            <ul>
+              <li>Establish a career in wealth management or a related financial services field.</li>
+              <li>Continue developing my knowledge and taking on new responsibilities.</li>
+              <li>Build lasting, trusted relationships with colleagues and clients.</li>
+              <li>Become a knowledgeable and dependable finance professional.</li>
+              <li>Create a career that supports continued growth and a healthy work-life balance.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div style="margin-top:58px">
+          <div class="eyebrow">The professional I want to be</div>
+          <h2 style="font-size:2.35rem">My values, in practice.</h2>
+          <div class="cards">
+            <article class="card"><div class="icon">◇</div><h3>Integrity</h3><p>Making ethical decisions and building trust through honesty and accountability.</p></article>
+            <article class="card"><div class="icon">✓</div><h3>Dependability</h3><p>Following through on responsibilities and being someone others can count on.</p></article>
+            <article class="card"><div class="icon">↗</div><h3>Ambition</h3><p>Setting meaningful goals, seeking opportunities, and continuing to challenge myself.</p></article>
+            <article class="card"><div class="icon">✧</div><h3>Communication</h3><p>Listening actively, sharing ideas clearly, and building strong relationships.</p></article>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top:65px;margin-bottom:0">
+          <div class="eyebrow">Moving forward</div>
+          <p>I plan to make the most of the opportunities available through the University of Alabama, including coursework, career fairs, professional development programs, networking events, and internships. Experiences through Culverhouse and the LEAD program can help me strengthen my communication, leadership, and decision-making skills. I want my college experience to prepare me for more than my first job — I want it to help me become a confident, knowledgeable, and well-rounded professional.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap closing">
+        <div class="eyebrow">Thank you for visiting</div>
+        <h2>Every experience is part of the journey.</h2>
+        <p>This portfolio represents where I am today and the direction I hope to grow. I look forward to learning, connecting with others, and discovering the opportunities ahead.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <!-- Replace the placeholder email and LinkedIn URL before publishing. -->
+          <a class="btn primary" href="mailto:atjensen1@crimson.ua.edu">Get in touch</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/ava-jensen-atj903" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p style="font-size:.78rem;margin-top:18px">Email: atjensen1@crimson.ua.edu · LinkedIn: linkedin.com/in/ava-jensen-atj903</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Ava Jensen · University of Alabama · Finance</div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const links = [...document.querySelectorAll('.navlinks a')];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
